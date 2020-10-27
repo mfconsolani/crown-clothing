@@ -6,23 +6,28 @@
     align-items: center;
     justify-content: center;
     margin: 0 7.5px 15px;
-    background-position: center;
-    background-size: cover;
     border-radius: 3px;
     box-shadow: 2px 4px 7px 2px #d0d0d0;
-
+    
     &.large {
       height: 380px;
     }
-
+    
     &:first-child {
       margin-right: 7.5px;
     }
-  
+    
     &:last-child {
       margin-left: 7.5px;
     }
-  
+    
+    .background-image {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
     .content {
       height: 90px;
       padding: 0 25px;
