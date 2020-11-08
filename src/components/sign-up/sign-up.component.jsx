@@ -28,6 +28,14 @@ class SignUp extends React.Component {
             alert("Passwords don't match");
             return;
         }
+
+        try {
+            
+            const { user } = await auth.createUserWithEmailAndPassword(email, password)
+            
+        } catch (error) {
+
+        }
     }
 
 
