@@ -13,7 +13,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
         // We need map because we need to return new versions of our state so our components know
         // that they have to re-render properly
         return cartItems.map(cartItem => cartItem.id === cartItemToAdd.id 
-            ? { cartItem, quantity: cartItem.quantity + 1}
+            ? { ...cartItem, quantity: cartItem.quantity + 1}
             : cartItem
             )
     } else {
