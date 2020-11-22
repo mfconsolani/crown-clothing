@@ -9,9 +9,9 @@ const CollectionPreview = ({ title, items }) => (
         <div className='preview'>
             {items
             .filter((item, idx) => idx < 4)
-            .map(item => ( // we do it this way because we are gonna need it in collection-item component
-                            // to serve as parameter for our reducer
-                <CollectionItem key={ item.id } item={item} />
+            .map(item => ( // we do it this way because we are gonna need the whole item prop
+                            // in collection-item component to serve as parameter for our reducer
+                <CollectionItem key={item.id} item={item} />
             ) )}
         </div>
     </div>
