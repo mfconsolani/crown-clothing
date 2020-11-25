@@ -5,6 +5,8 @@ import storage from 'redux-persist/lib/storage' // We import the actual localSto
 
 import userReducer from './user/user.reducer';
 import cartReducer from './cart/cart.reducer';
+import diretoryReducer from './directory/directory.reducer';
+import shopReducer from './shop/shop.reducer';
 
 const persistConfig = {
     key: 'root', // Which represents at what point inside of our reducing object do we want to start storing everything
@@ -14,7 +16,9 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     user: userReducer, // This persistance is being handled ny firebase auth at this point
-    cart: cartReducer
+    cart: cartReducer,
+    directory: diretoryReducer,
+    shop: shopReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
