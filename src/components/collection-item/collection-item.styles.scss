@@ -1,6 +1,6 @@
 
 .collection-item {
-  width: 22%;
+  width: 20vw;
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -8,6 +8,7 @@
   border-radius: 6px 6px 2px 2px;
   font-family: 'Abel', sans-serif;
   position: relative;
+  margin: 0.5em;
   
   .image {
     width: 100%;
