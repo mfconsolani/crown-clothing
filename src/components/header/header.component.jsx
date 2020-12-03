@@ -11,32 +11,34 @@ import { selectCurrentUser } from '../../redux/user/user.selector';
 
 import { ReactComponent as Logo } from '../assets/crown.svg';
 
-import './header.styles.scss';
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionDiv, OptionLink } from './header.styles.jsx';
+
+import './header.styles'
 
 const Header = ({ currentUser, hidden }) => (
-    <div className='header'>
-        <Link className='logo-container' to='/'>
+    <HeaderContainer>
+        <LogoContainer to='/'>
             <Logo className='logo'/>
-        </Link>
-        <div className='options'>
-            <Link to='/shop' className='option type1'>
+        </LogoContainer>
+        <OptionsContainer>
+            <OptionLink to='/shop' className='option type1'>
                 SHOP
-            </Link>
-            <Link to='/shop' className='option type1'>
+            </OptionLink>
+            <OptionLink to='/shop' className='option type1'>
                 CONTACT
-            </Link>
+            </OptionLink>
             {
                 currentUser ? 
-                <div className='option type1' onClick={() => auth.signOut()}>SIGN OUT</div>
+                <OptionDiv className='option type1' onClick={() => auth.signOut()}>SIGN OUT</OptionDiv>
                 :
-                <Link className='option type1' to='/signin'>
+                <OptionLink className='option type1' to='/signin'>
                     SIGN IN
-                </Link>
+                </OptionLink>
             }
             <CartIcon />
-        </div>
+        </OptionsContainer>
         { hidden ? null : <CartDropdown/> }
-    </div>
+    </HeaderContainer>
 )
 
 //Pay attention to the destructuring for nested values
