@@ -43,11 +43,20 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 firebase.initializeApp(config);
 
-export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
   // This following function will always return an object, even if there is nothing in there
   // Remember that Firestore will always return a Ref object from that query, no matter what.
   // This is great, because we will then have access to that object and be able to perform CRUD actions. 
   const collectionRef = firestore.collection(collectionKey);
+
+  const batch = firestore.batch();
+  objectsToAdd.forEach(obj => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
+    });
+
+    return await batch.commit()
+
 };
 
 export const auth = firebase.auth();
